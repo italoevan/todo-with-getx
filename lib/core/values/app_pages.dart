@@ -10,7 +10,7 @@ abstract class AppPages {
       binding: HomeBindings(),
       name: Routes.home,
       page: () => HomeScreen(
-        controller: Get.find<HomeControllerImpl>(),
+        controller: Get.find<HomeController>(),
       ),
     )
   ];

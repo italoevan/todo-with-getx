@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:to_do_getx/core/models/home_models/todo.dart';
-import 'package:to_do_getx/features/home/data/to_do_dao.dart';
+import '../../../../core/models/home_models/todo.dart';
+import '../../data/to_do_dao.dart';
 
 abstract class HomeController {
   bool get isLoading;

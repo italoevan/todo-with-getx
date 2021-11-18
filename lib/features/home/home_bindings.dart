@@ -5,7 +5,7 @@ import 'package:to_do_getx/features/home/screens/home_screen/home_controller.dar
 class HomeBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeControllerImpl>(() => HomeControllerImpl());
+    Get.lazyPut<HomeController>(() => HomeControllerImpl());
     Get.lazyPut(() => HomeNavigatorImpl());
   }
 }
