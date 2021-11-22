@@ -20,8 +20,6 @@ class Todo extends Comparable<Todo> {
 
   @override
   int compareTo(Todo other) {
-    int order = other.dateTime.compareTo(dateTime);
-    if (order == 0) order = dateTime.compareTo(other.dateTime);
-    return order;
+    return other.dateTime.compareTo(dateTime);
   }
 }
