@@ -31,8 +31,6 @@ class HomeControllerImpl extends GetxController implements HomeController {
 
   @override
   void onInit() async {
-    // await TodoDao.insert(Todo(description: "Testando legal"));
-
     await getList();
 
     super.onInit();
