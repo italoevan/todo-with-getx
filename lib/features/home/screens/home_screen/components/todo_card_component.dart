@@ -14,7 +14,7 @@ class TodoCardComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      margin: EdgeInsets.all(2),
+      margin: EdgeInsets.all(4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Theme.of(context).primaryColor),
@@ -28,8 +28,12 @@ class TodoCardComponent extends StatelessWidget {
               Icons.edit,
               color: Colors.green,
             )),
-        trailing:
-            IconButton(onPressed: removeTap, icon: Icon(Icons.remove_circle)),
+        trailing: IconButton(
+            onPressed: removeTap,
+            icon: Icon(
+              Icons.remove_circle,
+              color: Colors.red,
+            )),
       ),
     );
   }

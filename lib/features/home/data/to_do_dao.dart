@@ -5,7 +5,7 @@ import 'package:to_do_getx/core/models/home_models/todo.dart';
 abstract class TodoDao {
   static const String tableName = "todo";
   static const String _onCreate =
-      "CREATE TABLE $tableName (id INTEGER PRIMARY KEY,description TEXT) ";
+      "CREATE TABLE $tableName (id INTEGER PRIMARY KEY,description TEXT, dateTime TEXT) ";
 
   static Future insert(Todo model) async {
     Database database = await AppDatabase.getDatabase(
@@ -29,6 +29,8 @@ abstract class TodoDao {
     for (var element in response) {
       list.add(Todo.fromMap(element));
     }
+
+    list.sort();
 
     return list;
   }

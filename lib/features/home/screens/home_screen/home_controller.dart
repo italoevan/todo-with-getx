@@ -60,7 +60,7 @@ class HomeControllerImpl extends GetxController implements HomeController {
       await getList();
       list.refresh();
     } on Exception {
-      print("Error");
+      debugPrint("Error");
     }
   }
 
@@ -73,7 +73,7 @@ class HomeControllerImpl extends GetxController implements HomeController {
       await getList();
       list.refresh();
     } on Exception {
-      print("Error");
+      debugPrint("Error");
     }
   }
 
@@ -87,7 +87,7 @@ class HomeControllerImpl extends GetxController implements HomeController {
       await getList();
       list.refresh();
     } on Exception {
-      print("Error");
+      debugPrint("Error");
     }
   }
 
