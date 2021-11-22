@@ -22,7 +22,6 @@ class HomeDialogComponent extends StatelessWidget {
               decoration: InputDecoration(labelText: "Descrição"),
               controller: controller,
             ),
-            Divider(),
             ElevatedButton(onPressed: () => onTap(), child: Text(buttonText))
           ],
         ),
