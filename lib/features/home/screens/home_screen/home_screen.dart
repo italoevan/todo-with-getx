@@ -15,13 +15,11 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("To Do GetX"),
       ),
-      body: Container(
-        child: Obx(() => controller.isLoading
-            ? Center(child: CircularProgressIndicator())
-            : ListOfTodoComponent(
-                controller: controller,
-              )),
-      ),
+      body: Obx(() => controller.isLoading
+          ? Center(child: CircularProgressIndicator())
+          : TodoList(
+              controller: controller,
+            )),
       floatingActionButton: FloatingActionButton(
         onPressed: () => controller.onActionButtonTap(context),
         child: Icon(Icons.add),

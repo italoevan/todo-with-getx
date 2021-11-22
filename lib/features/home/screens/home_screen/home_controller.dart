@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:to_do_getx/features/home/navigator/home_navigator.dart';
 import '../../../../core/models/home_models/todo.dart';
 import '../../data/to_do_dao.dart';
+import 'components/home_dialog_component.dart';
 
 abstract class HomeController {
   bool get isLoading;
@@ -20,6 +22,9 @@ abstract class HomeController {
 
 class HomeControllerImpl extends GetxController implements HomeController {
   var list = <Todo>[].obs;
+  final HomeNavigator navigator;
+  HomeControllerImpl(this.navigator);
+
   @override
   bool get isLoading => isListLoading.value;
   var isListLoading = true.obs;
@@ -92,25 +97,12 @@ class HomeControllerImpl extends GetxController implements HomeController {
 
     showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-              content: Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(labelText: "Descrição"),
-                      controller: descriptionController,
-                    ),
-                    Divider(),
-                    ElevatedButton(
-                        onPressed: () => insert(Todo(
-                                    description: descriptionController.text))
-                                .whenComplete(
-                              () => Navigator.pop(context),
-                            ),
-                        child: Text("Salvar"))
-                  ],
-                ),
+        builder: (context) => HomeDialogComponent(
+              buttonText: "Salvar",
+              controller: descriptionController,
+              onTap: () => insert(Todo(description: descriptionController.text))
+                  .whenComplete(
+                () => Navigator.pop(context),
               ),
             ));
   }
@@ -125,25 +117,11 @@ class HomeControllerImpl extends GetxController implements HomeController {
 
     showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-              content: Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(labelText: "Descrição"),
-                      controller: descriptionController,
-                    ),
-                    Divider(),
-                    ElevatedButton(
-                        onPressed: () => edit(model, descriptionController.text)
-                                .whenComplete(
-                              () => Navigator.pop(context),
-                            ),
-                        child: Text("Salvar"))
-                  ],
-                ),
-              ),
+        builder: (context) => HomeDialogComponent(
+              buttonText: "Salvar",
+              controller: descriptionController,
+              onTap: () => edit(model, descriptionController.text)
+                  .whenComplete(() => Navigator.pop(context)),
             ));
   }
 }
